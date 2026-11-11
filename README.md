@@ -35,3 +35,10 @@ Locale tags are reduced to their base language: `en-GB`, `en_US` and `EN` all re
 ## Supported locales
 
 `en`, `fr`, `de`, `es`, `it`, `pt`, `nl`, `sv`, `da`, `no`, `fi`.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
